@@ -61,9 +61,17 @@ export default class App extends Component {
 
     return(
         <View style={styles.main}>
-          <Header />
+          <Header
+            title='All Notes'
+            pressed={()=>console.log('got pressed')}
+          />
 
-          <Body notesList={this.state.notes} />
+          <Body notesList={this.state.notes}
+            del={(item)=>alert('delete: '+item)}
+            detail = {(d)=>{
+              this.setState({detail:true, })
+            }}
+          />
 
           <TouchableOpacity style={styles.btn}
               onPress={()=>this.setState({showAddNote: true})}

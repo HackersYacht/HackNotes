@@ -27,7 +27,13 @@ export default class Body extends Component {
         {this.props.notesList.length !==0 ?
           (<FlatList
             data = {this.props.notesList}
-            renderItem={({item})=><Note  note={item} />}
+            renderItem={({item})=><Note  note={item}
+
+            detail = {this.props.detail}
+            press={()=>this.props.del(item)} />}
+
+
+
             keyExtractor ={(item, index) => JSON.stringify(index)}
           />)
           : (

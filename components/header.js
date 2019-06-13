@@ -1,15 +1,22 @@
-//header.js
 import React from 'react'
 import {
-  View, Text, StyleSheet
+  View, Text, StyleSheet, TouchableOpacity
 } from 'react-native'
 
-export default ()=>{
-  return (
-    <View style={styles.header}>
-      <Text style={styles.headerTxt}>All Notes</Text>
-    </View>
-  )
+export default class Header extends Component{
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    return (
+      <View style={styles.header}>
+        <TouchableOpacity onPress={this.props.pressed}>
+          <Text style={styles.headerTxt}>{this.props.title}</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
